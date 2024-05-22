@@ -16,4 +16,7 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - run: cd ${{ github.workspace }}/nginx
+      - run: ansible --version
+      - run: ansible-playbook test.yml
       - run: echo "This job's status is ${{ job.status }}."
