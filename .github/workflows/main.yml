@@ -14,11 +14,16 @@ jobs:
       - run: echo "The workflow is now ready to test your code on the runner."
       - run: kubectl
       - run: ansible --version
+      - run: minikube version
+      - name: Find kube config location
+        run: |
+          kubectl --kubeconfig
+          ls $HOME/.kube/config
       - run: cd ${{ github.workspace }}
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
           cd ${{ github.workspace }}/nginx
           ls
-          kubectl apply -f test.yaml --validate=false
+          #kubectl apply -f test.yaml --validate=false
       - run: echo "This job's status is ${{ job.status }}."
