@@ -13,10 +13,12 @@ jobs:
       - run: echo "The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "The workflow is now ready to test your code on the runner."
       - run: kubectl
-      - run: cd ${{ github.workspace }}/nginx
+      - run: ansible --version
+      - run: cd ${{ github.workspace }}
       - name: List files in the repository
         run: |
-          ls 
-      - run: ansible --version
-      - run: ansible-playbook nginx/test.yml
+          ls ${{ github.workspace }}
+          cd ${{ github.workspace }}/nginx
+          ls
+          ansible-playbook nginx/test.yml
       - run: echo "This job's status is ${{ job.status }}."
