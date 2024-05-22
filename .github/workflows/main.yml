@@ -17,7 +17,7 @@ jobs:
       - run: minikube version
       - name: Find kube config location
         run: |
-          ls $HOME/.kube/config
+           kubectl config view
       - run: cd ${{ github.workspace }}
       - name: List files in the repository
         run: |
