@@ -20,5 +20,5 @@ jobs:
           ls ${{ github.workspace }}
           cd ${{ github.workspace }}/nginx
           ls
-          kubectl apply -f test.yaml
+          kubectl apply -f test.yaml --validate=false
       - run: echo "This job's status is ${{ job.status }}."
