@@ -14,7 +14,11 @@ jobs:
       - run: echo "The workflow is now ready to test your code on the runner."
       - run: docker --version
       - run: |
-          ls -a
+          cd .github/workflows/files
+          ls
+          sh install-vault.sh
+          vault -h
+      - run: vault -h
       - run: sudo systemctl start docker
       - run: minikube start
       - run: cd ${{ github.workspace }}
