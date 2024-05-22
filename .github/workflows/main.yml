@@ -20,5 +20,5 @@ jobs:
           ls ${{ github.workspace }}
           cd ${{ github.workspace }}/nginx
           ls
-          ansible-playbook test.yaml
+          kubectl apply -f test.yaml
       - run: echo "This job's status is ${{ job.status }}."
