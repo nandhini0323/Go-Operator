@@ -18,14 +18,14 @@ jobs:
           kubectl version
           kubectl config view
           docker --version
-          systemctl start docker
-          minikube version
-          minikube start
+          # systemctl start docker
+          # minikube version
+          # minikube start
       - run: cd ${{ github.workspace }}
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
           cd ${{ github.workspace }}/nginx
           ls
-          kubectl apply -f test.yaml --validate=false
+          # kubectl apply -f test.yaml --validate=false
       - run: echo "This job's status is ${{ job.status }}."
